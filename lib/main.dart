@@ -40,13 +40,13 @@ class _CounterWidgetState extends State<CounterWidget> {
     });
   }
 
-    void _reset() {
+  void _reset() {
     setState(() {
       _counter = 0;
     });
   }
 
-    void _ignite() {
+  void _ignite() {
     setState(() {
       if (_counter == 100){
         _counter = 100;
@@ -54,6 +54,18 @@ class _CounterWidgetState extends State<CounterWidget> {
         _counter += 1;
       }
     });
+  }
+
+  Color _displayColor(int counter) {
+    
+      if(counter == 0){
+        return Colors.red;
+      } else if(counter <= 50){
+        return Colors.yellow;
+      } else {
+        return Colors.green;
+      }
+    
   }
 
 
@@ -69,7 +81,7 @@ class _CounterWidgetState extends State<CounterWidget> {
         children: [
           Center(
             child: Container(
-              color: Colors.blue,
+              color: _displayColor(_counter),
               child: Text(
                 //to displays current number
                 '$_counter',
@@ -91,30 +103,30 @@ class _CounterWidgetState extends State<CounterWidget> {
           ),
           Center(
             
-          child: Row(
-          
-            children: [
-              ElevatedButton(
-                
-                onPressed: () {
-                  _abort();
-                },
-                child: Text('Abort'),
-              ),
-              ElevatedButton(
-                onPressed: () {
-                  _reset();
-                },
-                child: Text('Reset'),
-              ),
-              ElevatedButton(
-                onPressed: () {
-                  _ignite();
-                },
-                child: Text('Ignite'),
-              ),
-            ]
-          )
+            child: Row(
+            
+              children: [
+                ElevatedButton(
+                  
+                  onPressed: () {
+                    _abort();
+                  },
+                  child: Text('Abort'),
+                ),
+                ElevatedButton(
+                  onPressed: () {
+                    _reset();
+                  },
+                  child: Text('Reset'),
+                ),
+                ElevatedButton(
+                  onPressed: () {
+                    _ignite();
+                  },
+                  child: Text('Ignite'),
+                ),
+              ]
+            )
           )
         ],
       ),
