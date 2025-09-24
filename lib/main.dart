@@ -31,7 +31,12 @@ class _CounterWidgetState extends State<CounterWidget> {
 
   void _abort() {
     setState(() {
-      _counter -= 1;
+      if (_counter == 0){
+        _counter = 0;
+      } else{
+        _counter -= 1;
+      }
+      
     });
   }
 
@@ -43,7 +48,11 @@ class _CounterWidgetState extends State<CounterWidget> {
 
     void _ignite() {
     setState(() {
-      _counter += 1;
+      if (_counter == 100){
+        _counter = 100;
+      } else{
+        _counter += 1;
+      }
     });
   }
 
@@ -80,9 +89,13 @@ class _CounterWidgetState extends State<CounterWidget> {
             activeColor: Colors.blue,
             inactiveColor: Colors.red,
           ),
-          Row(
+          Center(
+            
+          child: Row(
+          
             children: [
               ElevatedButton(
+                
                 onPressed: () {
                   _abort();
                 },
@@ -101,6 +114,7 @@ class _CounterWidgetState extends State<CounterWidget> {
                 child: Text('Ignite'),
               ),
             ]
+          )
           )
         ],
       ),
