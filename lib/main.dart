@@ -29,6 +29,25 @@ class _CounterWidgetState extends State<CounterWidget> {
   //set counter value
   int _counter = 0;
 
+  void _abort() {
+    setState(() {
+      _counter -= 1;
+    });
+  }
+
+    void _reset() {
+    setState(() {
+      _counter = 0;
+    });
+  }
+
+    void _ignite() {
+    setState(() {
+      _counter += 1;
+    });
+  }
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -61,6 +80,28 @@ class _CounterWidgetState extends State<CounterWidget> {
             activeColor: Colors.blue,
             inactiveColor: Colors.red,
           ),
+          Row(
+            children: [
+              ElevatedButton(
+                onPressed: () {
+                  _abort();
+                },
+                child: Text('Abort'),
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  _reset();
+                },
+                child: Text('Reset'),
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  _ignite();
+                },
+                child: Text('Ignite'),
+              ),
+            ]
+          )
         ],
       ),
     );
