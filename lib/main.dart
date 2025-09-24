@@ -101,13 +101,10 @@ class _CounterWidgetState extends State<CounterWidget> {
             activeColor: Colors.blue,
             inactiveColor: Colors.red,
           ),
-          Center(
-            
-            child: Row(
-            
+           Row(  
+            mainAxisAlignment: MainAxisAlignment.center,          
               children: [
-                ElevatedButton(
-                  
+                ElevatedButton(                  
                   onPressed: () {
                     _abort();
                   },
@@ -127,7 +124,7 @@ class _CounterWidgetState extends State<CounterWidget> {
                 ),
               ]
             )
-          )
+          
         ],
       ),
     );
