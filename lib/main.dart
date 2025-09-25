@@ -28,6 +28,7 @@ class CounterWidget extends StatefulWidget {
 class _CounterWidgetState extends State<CounterWidget> {
   //set counter value
   int _counter = 0;
+  
 
   void _abort() {
     setState(() {
@@ -68,6 +69,15 @@ class _CounterWidgetState extends State<CounterWidget> {
     
   }
 
+  String _displayText(int counter){
+
+    if (counter == 100){
+      return "Liftoff!!!";
+    } else {
+      return "";
+    }
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -79,6 +89,15 @@ class _CounterWidgetState extends State<CounterWidget> {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
+          Center(
+            child: Text(
+              _displayText(_counter),
+              style: TextStyle(
+                fontSize: 50.0,
+                color: Colors.blue
+              ),
+            ),
+          ),
           Center(
             child: Container(
               color: _displayColor(_counter),
